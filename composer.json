@@ -2,6 +2,16 @@
   "name": "more-cores/laravel-restcord",
   "type": "library",
   "license": "MIT",
+  "homepage": "https://gitlab.com/more-cores/laravel-restcord",
+  "authors": [
+    {
+      "name": "Ben Kuhl",
+      "email": "ben@morecores.games"
+    }
+  ],
+  "support": {
+    "issues": "https://gitlab.com/more-cores/laravel-restcord/issues"
+  },
   "autoload": {
     "psr-4": {
       "LaravelRestcord\\": "src/"

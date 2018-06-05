@@ -24,7 +24,7 @@ php-7.2-with-coverage:
   script:
     #- apk add --update --no-cache php7-xdebug
     #- php -i | grep xdebug
-    - pecl install xdebug
+    - pecl install xdebug-2.6.0
     - docker-php-ext-enable xdebug
     - vendor/bin/phpunit --coverage-text --colors=never
     

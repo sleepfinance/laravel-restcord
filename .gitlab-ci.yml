@@ -22,7 +22,7 @@ php-7.2-with-coverage:
   image: php:7.2-cli-alpine
   # Always run coverage on the latest version of PHP
   script:
-    - apk-add --update --nocache php7-xdebug
+    - apk add --update --nocache php7-xdebug
     - docker-php-ext-enable xdebug
     - vendor/bin/phpunit --coverage-text --colors=never
     

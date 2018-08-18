@@ -56,14 +56,18 @@ class BotCallback
                 ],
             ]);
         } catch (ClientException | ServerException $e) {
-            $json = \GuzzleHttp\json_decode($e->getResponse()->getBody()->getContents(), true);
+            $responseBody = $e->getResponse()->getBody()->getContents();
 
-            // Provide a more developer-friendly error message for common errors
-            if (isset($json['code'])) {
-                $exception = $errorFactory->make($json['code'], $json['message']);
+            if ($responseBody[0] == '{') {
+                $json = \GuzzleHttp\json_decode($responseBody, true);
 
-                if ($exception != null) {
-                    $e = $exception;
+                // Provide a more developer-friendly error message for common errors
+                if (isset($json['code'])) {
+                    $exception = $errorFactory->make($json['code'], $json['message']);
+
+                    if ($exception != null) {
+                        $e = $exception;
+                    }
                 }
             }
 

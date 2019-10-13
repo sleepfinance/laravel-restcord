@@ -10,7 +10,7 @@ class ErrorFactoryTest extends TestCase
     /** @var ErrorFactory */
     protected $errorFactory;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

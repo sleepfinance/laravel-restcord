@@ -44,7 +44,7 @@ class WebhookCallbackTest extends TestCase
     /** @var WebhookCallback */
     protected $webhookCallback;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

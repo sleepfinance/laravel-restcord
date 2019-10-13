@@ -44,7 +44,7 @@ class BotCallbackTest extends TestCase
     /** @var BotCallback */
     protected $botCallback;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

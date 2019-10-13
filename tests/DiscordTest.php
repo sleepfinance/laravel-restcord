@@ -15,7 +15,7 @@ class DiscordTest extends TestCase
     /** @var Mockery\MockInterface */
     protected $api;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

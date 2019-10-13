@@ -17,7 +17,7 @@ class ApiClientTest extends TestCase
     /** @var string */
     protected $token;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

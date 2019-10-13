@@ -14,7 +14,7 @@ class DiscordExtendSocialiteTest extends TestCase
     /** @var DiscordExtendSocialite */
     protected $socialteRegistrar;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

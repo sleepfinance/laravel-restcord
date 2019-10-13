@@ -17,18 +17,12 @@ before_script:
 - php -r "unlink('composer-setup.php'); unlink('installer.sig');"
 - php composer.phar install
 
-php-7.2-with-coverage:
+php-7.3-with-coverage:
   stage: test
-  image: php:7.2-cli-alpine
+  image: php:7.3-cli-alpine
   # Always run coverage on the latest version of PHP
   script:
     - apk add --update --no-cache pcre-dev ${PHPIZE_DEPS}
-    - pecl install xdebug-2.6.0
+    - pecl install xdebug-2.7.2
     - docker-php-ext-enable xdebug
     - vendor/bin/phpunit --coverage-text --colors=never
-    
-php-7.1:
-  stage: test
-  image: php:7.1-cli-alpine
-  script:
-    - vendor/bin/phpunit

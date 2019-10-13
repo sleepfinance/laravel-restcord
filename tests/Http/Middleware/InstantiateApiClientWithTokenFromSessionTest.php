@@ -21,7 +21,7 @@ class InstantiateApiClientWithTokenFromSessionTest extends TestCase
     /** @var InstantiateApiClientWithTokenFromSession */
     protected $middleware;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

@@ -15,7 +15,7 @@ class AddTokenToSessionTest extends TestCase
     /** @var AddTokenToSession */
     protected $eventHandler;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

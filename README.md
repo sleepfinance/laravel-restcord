@@ -58,6 +58,8 @@ Bot key/secret will be used for callback endpoints related to adding a bot or cr
 
 # Usage
 
+This documentation assumes your users are logging in via the [Discord driver](https://socialiteproviders.netlify.com/providers/discord.html) for [Laravel Socialite](https://laravel.com/docs/master/socialite).
+
 Anytime you see `$discord` in this documentation it is assumed to be an instance of `LaravelRestcord\Discord\Discord::class` which is available from Laravel's IOC container.
 
 <a name="guilds" />

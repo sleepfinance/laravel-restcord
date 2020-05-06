@@ -87,7 +87,7 @@ class Guild extends Fluent implements CanHavePermissions
 
     public function iconUrl() : string
     {
-        return 'https://cdn.discord.com/icons/'.$this->id().'/'.$this->icon().'.jpg';
+        return 'https://cdn.discordapp.com/icons/'.$this->id().'/'.$this->icon().'.jpg';
     }
 
     public function getMemberById(int $userId) : Member

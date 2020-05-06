@@ -12,8 +12,8 @@ use LaravelRestcord\Discord\Permissions\HasPermissions;
  * This guild object represents both a partial guild object
  * and a full guild object depending on context.
  *
- * @see https://discordapp.com/developers/docs/resources/user#get-current-user-guilds
- * @see https://discordapp.com/developers/docs/resources/guild#guild-object
+ * @see https://discord.com/developers/docs/resources/user#get-current-user-guilds
+ * @see https://discord.com/developers/docs/resources/guild#guild-object
  */
 class Guild extends Fluent implements CanHavePermissions
 {
@@ -87,7 +87,7 @@ class Guild extends Fluent implements CanHavePermissions
 
     public function iconUrl() : string
     {
-        return 'https://cdn.discordapp.com/icons/'.$this->id().'/'.$this->icon().'.jpg';
+        return 'https://cdn.discord.com/icons/'.$this->id().'/'.$this->icon().'.jpg';
     }
 
     public function getMemberById(int $userId) : Member

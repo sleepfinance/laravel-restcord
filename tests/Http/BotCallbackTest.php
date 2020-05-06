@@ -79,7 +79,7 @@ class BotCallbackTest extends TestCase
         $response = Mockery::mock(Response::class);
         $response->shouldReceive('getBody')->andReturn($stream);
 
-        $this->client->shouldReceive('post')->with('https://discordapp.com/api/oauth2/token', [
+        $this->client->shouldReceive('post')->with('https://discord.com/api/oauth2/token', [
             'headers' => [
                 'Accept' => 'application/json',
             ],

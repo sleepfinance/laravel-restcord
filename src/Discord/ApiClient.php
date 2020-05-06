@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 class ApiClient
 {
-    const API_URL = 'https://discordapp.com/api';
+    const API_URL = 'https://discord.com/api';
 
     /** @var Client */
     protected $client;

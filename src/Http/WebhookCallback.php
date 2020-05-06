@@ -27,7 +27,7 @@ class WebhookCallback
         $webhookHandler = $application->make($config->get('laravel-restcord.webhook-created-handler'));
 
         try {
-            $response = $client->post('https://discordapp.com/api/oauth2/token', [
+            $response = $client->post('https://discord.com/api/oauth2/token', [
                 'headers' => [
                     'Accept' => 'application/json',
                 ],

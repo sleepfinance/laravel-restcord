@@ -78,7 +78,7 @@ class WebhookCallbackTest extends TestCase
         Discord::setKey($key = uniqid());
         Discord::setSecret($secret = uniqid());
 
-        $this->client->shouldReceive('post')->with('https://discordapp.com/api/oauth2/token', [
+        $this->client->shouldReceive('post')->with('https://discord.com/api/oauth2/token', [
             'headers' => [
                 'Accept' => 'application/json',
             ],

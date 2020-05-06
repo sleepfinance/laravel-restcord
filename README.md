@@ -86,7 +86,7 @@ $member->joinedAt(); // Carbon
 
 ## Adding Bots To Guilds
 
-This implementation uses the [Advanced Both Authorization](https://discordapp.com/developers/docs/topics/oauth2#advanced-bot-authorization) flow to add the bot to a guild.  You should have the **Require OAuth2 Code Grant** option _enabled_ on your app's settings.   
+This implementation uses the [Advanced Bot Authorization](https://discord.com/developers/docs/topics/oauth2#advanced-bot-authorization) flow to add the bot to a guild.  You should have the **Require OAuth2 Code Grant** option _enabled_ on your app's settings.   
 
 ```php
 use LaravelRestcord\Discord\HandlesBotAddedToGuild;
@@ -123,7 +123,7 @@ Now you're ready to direct the user to Discord's web site so they can select the
     }
 ```
 
-This package handles the routing needs, but you need to whitelist the callback URL for this to work.  Add `http://MY-SITE.com/discord/bot-added` to your [application's redirect uris](https://discordapp.com/developers/applications/me).
+This package handles the routing needs, but you need to whitelist the callback URL for this to work.  Add `http://MY-SITE.com/discord/bot-added` to your [application's redirect uris](https://discord.com/developers/applications/me).
 
 Your handler will be trigger when the bot has been added to a guild.
 
@@ -132,7 +132,7 @@ Your handler will be trigger when the bot has been added to a guild.
 ```js
 "use strict";
 var TOKEN="PUT YOUR TOKEN HERE";
-fetch("https://discordapp.com/api/v7/gateway").then(function(a){return a.json()}).then(function(a){var b=new WebSocket(a.url+"/?encoding=json&v=6");b.onerror=function(a){return console.error(a)},b.onmessage=function(a){try{var c=JSON.parse(a.data);0===c.op&&"READY"===c.t&&(b.close(),console.log("Successful authentication! You may now close this window!")),10===c.op&&b.send(JSON.stringify({op:2,d:{token:TOKEN,properties:{$browser:"b1nzy is a meme"},large_threshold:50}}))}catch(a){console.error(a)}}});
+fetch("https://discord.com/api/v7/gateway").then(function(a){return a.json()}).then(function(a){var b=new WebSocket(a.url+"/?encoding=json&v=6");b.onerror=function(a){return console.error(a)},b.onmessage=function(a){try{var c=JSON.parse(a.data);0===c.op&&"READY"===c.t&&(b.close(),console.log("Successful authentication! You may now close this window!")),10===c.op&&b.send(JSON.stringify({op:2,d:{token:TOKEN,properties:{$browser:"b1nzy is a meme"},large_threshold:50}}))}catch(a){console.error(a)}}});
 ```
 
 <a name="creating-webhooks" />
@@ -176,6 +176,6 @@ Now you're ready to direct the user to Discord's web site to create the webhook:
     }
 ```
 
-This package handles the routing needs, but you need to whitelist the callback URL for this to work.  Add `http://MY-SITE.com/discord/create-webhook` to your [application's redirect uris](https://discordapp.com/developers/applications/me). 
+This package handles the routing needs, but you need to whitelist the callback URL for this to work.  Add `http://MY-SITE.com/discord/create-webhook` to your [application's redirect uris](https://discord.com/developers/applications/me). 
 
 Your handler will be trigger when the webhook is created.

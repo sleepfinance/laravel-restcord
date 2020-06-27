@@ -49,6 +49,7 @@ composer require more-cores/laravel-restcord:2.*
 
  * `DISCORD_BOT_KEY`
  * `DISCORD_BOT_SECRET`
+ * `DISCORD_BOT_TOKEN`
  * `DISCORD_KEY`
  * `DISCORD_SECRET`
  

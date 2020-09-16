@@ -22,7 +22,7 @@
     "illuminate/support": ">=6.0",
     "illuminate/contracts": ">=6.0",
     "restcord/restcord": "dev-master",
-    "laravel/socialite": "^4.0"
+    "laravel/socialite": "^4.0 || ^5.0"
   },
   "require-dev": {
     "symfony/var-dumper": "^4.0",

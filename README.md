@@ -2,6 +2,8 @@
 
 A small, fluent wrapper for [Restcord](http://www.restcord.com).  
 
+> This project is deprecated, see https://gitlab.com/more-cores/laravel-restcord/-/issues/38 for more details.
+
 ## README Contents
 
 * [Features](#features)

@@ -4,8 +4,6 @@ The repository is a fork of [more-cores/laravel-restcord](https://gitlab.com/mor
 
 A small, fluent wrapper for [Restcord](http://www.restcord.com).  
 
-> THIS PROJECT IS DEPRECATED, see https://gitlab.com/more-cores/laravel-restcord/-/issues/38 for more details.
-
 ## README Contents
 
 * [Features](#features)

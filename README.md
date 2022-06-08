@@ -1,4 +1,6 @@
-# laravel-restcord
+# laravel-restcord (Laravel 8)
+
+The repository is a fork of [more-cores/laravel-restcord](https://gitlab.com/more-cores/laravel-restcord), it was updated to be compatible with PHP 8 and recent versions of Laravel.
 
 A small, fluent wrapper for [Restcord](http://www.restcord.com).  
 

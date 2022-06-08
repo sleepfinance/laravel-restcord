@@ -19,13 +19,10 @@
   },
   "require": {
     "php": "^7.3|^8.0",
-    "illuminate/support": ">=6.0",
-    "illuminate/contracts": ">=6.0",
-    "restcord/restcord": "dev-master",
-    "laravel/socialite": "^4.0 || ^5.0"
-  },
-  "require-dev": {
-
+    "illuminate/support": "^9.17",
+    "restcord/restcord": "^0.5.0",
+    "laravel/socialite": "^5.5",
+    "illuminate/contracts": "^9.17"
   },
   "autoload-dev": {
     "classmap": [

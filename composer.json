@@ -1,16 +1,16 @@
 {
-  "name": "more-cores/laravel-restcord",
+  "name": "fabrizio/laravel-restcord",
   "type": "library",
   "license": "MIT",
-  "homepage": "https://gitlab.com/more-cores/laravel-restcord",
+  "homepage": "https://github.com/F4brizio/laravel-restcord",
   "authors": [
     {
-      "name": "Ben Kuhl",
-      "email": "ben@morecores.games"
+      "name": "Fabrizio Piminchumo",
+      "email": "f4brizio.21@gmail.com"
     }
   ],
   "support": {
-    "issues": "https://gitlab.com/more-cores/laravel-restcord/issues"
+    "issues": "https://github.com/F4brizio/commentator/issues"
   },
   "autoload": {
     "psr-4": {

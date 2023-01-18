@@ -1,8 +1,8 @@
 {
-  "name": "fabrizio/laravel-restcord",
+  "name": "sleepfinance/laravel-restcord",
   "type": "library",
   "license": "MIT",
-  "homepage": "https://github.com/F4brizio/laravel-restcord",
+  "homepage": "https://github.com/sleepfinance/laravel-restcord",
   "authors": [
     {
       "name": "Fabrizio Piminchumo",
@@ -10,7 +10,7 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/F4brizio/commentator/issues"
+    "issues": "https://github.com/sleepfinance/commentator/issues"
   },
   "autoload": {
     "psr-4": {
@@ -27,11 +27,11 @@
   "require-dev": {
     "symfony/var-dumper": "*",
     "mockery/mockery": "*",
-    "phpunit/phpunit": "*",
+    "phpunit/phpunit": "^9",
     "socialiteproviders/discord": "*",
-    "codeclimate/php-test-reporter": "*",
-    "satooshi/php-coveralls": "*",
-    "vlucas/phpdotenv": "*"
+    "vlucas/phpdotenv": "*",
+    "php-coveralls/php-coveralls": "^2.5",
+    "barryvdh/laravel-ide-helper": "^2.12"
   },
   "autoload-dev": {
     "classmap": [

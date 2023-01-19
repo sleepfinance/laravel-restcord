@@ -42,7 +42,7 @@ class WebhookCallback
                 ],
             ]);
         } catch (ClientException $e) {
-            $json = \GuzzleHttp\json_decode($e->getResponse()->getBody()->getContents(), true);
+            $json = \GuzzleHttp\Utils::jsonDecode($e->getResponse()->getBody()->getContents(), true);
 
             // Provide a more developer-friendly error message for common errors
             if (isset($json['code'])) {
@@ -56,7 +56,7 @@ class WebhookCallback
             return $webhookHandler->errored($e);
         }
 
-        $json = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
+        $json = \GuzzleHttp\Utils::jsonDecode($response->getBody()->getContents(), true);
 
         $webhook = new Webhook($json['webhook']);
 

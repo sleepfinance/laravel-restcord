@@ -31,10 +31,8 @@ class BotCallback
         // to add the bot, we need to use the bot token
         // during the exchange
         $this->useDiscordBotToken();
-
         /** @var HandlesBotAddedToGuild $botAddedHandler */
         $botAddedHandler = $application->make($config->get('laravel-restcord.bot-added-handler'));
-
         // can happen if the user decides not to add our bot
         if ($request->has('error')) {
             return $botAddedHandler->botNotAdded($request->get('error'));
@@ -50,17 +48,14 @@ class BotCallback
                     'client_id'     => Discord::key(),
                     'client_secret' => Discord::secret(),
                     'code'          => $request->get('code'),
-
                     // this endpoint is never hit, it just needs to be here for OAuth compatibility
                     'redirect_uri' => $urlGenerator->to(Discord::callbackUrl().'/bot-added'),
                 ],
             ]);
         } catch (ClientException | ServerException $e) {
             $responseBody = $e->getResponse()->getBody()->getContents();
-
             if ($responseBody[0] == '{') {
-                $json = \GuzzleHttp\json_decode($responseBody, true);
-
+                $json = \GuzzleHttp\Utils::jsonDecode($responseBody, true);
                 // Provide a more developer-friendly error message for common errors
                 if (isset($json['code'])) {
                     $exception = $errorFactory->make($json['code'], $json['message']);
@@ -70,14 +65,11 @@ class BotCallback
                     }
                 }
             }
-
             return $botAddedHandler->errored($e);
         }
 
-        $json = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
-
+        $json = \GuzzleHttp\Utils::jsonDecode($response->getBody()->getContents(), true);
         $guild = new Guild($json['guild']);
-
         return $botAddedHandler->botAdded($json['access_token'], $json['expires_in'], $json['refresh_token'], $guild);
     }
 }

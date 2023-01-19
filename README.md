@@ -117,12 +117,25 @@ Next, add a binding to your `AppServiceProvider` so the package knows which clas
 Now you're ready to direct the user to Discord's web site so they can select the guild to add the bot to:
 
 ```php
-    public function show(Guild $guild)
+    public function redirecToAddBot(Guild $guild = null)
     {
         // Reference https://discordapi.com/permissions.html to determine
         // the permissions your bot needs
-    
-        $guild->sendUserToDiscordToAddBot($permissions);
+        Discord::redirecToAddBot($permissions, $guild->?id()??null);
+    }
+```
+
+
+if you wan to show a button in th ui
+
+```php
+    public function redirecToAddBot(Guild $guild = null)
+    {
+        // Reference https://discordapi.com/permissions.html to determine
+        // the permissions your bot needs
+        $url = Discord::addBotUrl($permissions, $guild->?id()??null);
+        return $url;
+        // show this in href link
     }
 ```
 
@@ -171,11 +184,13 @@ Next, add a binding to your `AppServiceProvider` so the package knows which clas
 Now you're ready to direct the user to Discord's web site to create the webhook:
 
 ```php
-    public function show(Guild $guild)
+    public function createWebhook()
     {
         // redirects the user to Discord's interface for selecting
         // a guild and channel for the webhook
-        $guild->sendUserToDiscordToCreateWebhook();
+        Discord::redirectToCreateWebhook();
+        //for url
+        $url = Discord::addWebHookUrl();
     }
 ```
 

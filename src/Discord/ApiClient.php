@@ -42,7 +42,7 @@ class ApiClient
         $response = $this->client->get(self::API_URL.$uri, $options);
         $responseBody = $response->getBody()->getContents();
 
-        return \GuzzleHttp\json_decode($responseBody, true);
+        return \GuzzleHttp\Utils::jsonDecode($responseBody, true);
     }
 
     public function post(string $uri, array $options = []) : array
@@ -50,6 +50,6 @@ class ApiClient
         $response = $this->client->post(self::API_URL.$uri, $options);
         $responseBody = $response->getBody()->getContents();
 
-        return \GuzzleHttp\json_decode($responseBody, true);
+        return \GuzzleHttp\Utils::jsonDecode($responseBody, true);
     }
 }

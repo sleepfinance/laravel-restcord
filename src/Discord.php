@@ -88,4 +88,41 @@ class Discord
     {
         return self::$callbackUrl.'/discord';
     }
+
+
+    public static function addBotUrl(int $permissions, ?int $guildId = null){
+        $url = ApiClient::API_URL . '/oauth2/authorize?client_id=' . self::key() . '&scope=bot&permissions=' . $permissions . '&redirect_uri=' . urlencode(self::callbackUrl() . '/bot-added') . '&response_type=code';
+        if ($guildId != null) {
+            $url .= '&guild_id=' . $guildId;
+        }
+        return $url;
+    }
+    
+
+    public static function addWebHookUrl()
+    {
+        return  ApiClient::API_URL . '/oauth2/authorize?client_id=' . self::key() . '&scope=webhook.incoming&redirect_uri=' . urlencode(Discord::callbackUrl() . '/create-webhook') . '&response_type=code';
+    }
+
+    /**
+     * Providing a guild id will pre-select that guild on the dropdown menu.
+     *
+     * @codecoverageignore
+     */
+    public static function redirecToAddBot(int $permissions, ?int $guildId = null)
+    {
+        header('Location: ' . self::addBotUrl($permissions, $guildId));
+        exit;
+    }
+
+    /**
+     * @codecoverageignore
+     */
+    public static function redirectToCreateWebhook()
+    {
+        header('Location: ' . self::addWebHookUrl());
+        exit;
+    }
+
+
 }

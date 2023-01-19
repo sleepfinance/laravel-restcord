@@ -2,7 +2,7 @@
 
 namespace LaravelRestcord;
 
-use Guzzle\Stream\StreamInterface;
+use Psr\Http\Message\StreamInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;

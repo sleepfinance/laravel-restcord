@@ -2,7 +2,7 @@
 
 namespace LaravelRestcord;
 
-use Guzzle\Stream\StreamInterface;
+use Psr\Http\Message\StreamInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;
@@ -70,7 +70,7 @@ class BotCallbackTest extends TestCase
         $this->request->shouldReceive('has')->with('error')->andReturn(false);
 
         $stream = Mockery::mock(StreamInterface::class);
-        $stream->shouldReceive('getContents')->andReturn(\GuzzleHttp\json_encode([
+        $stream->shouldReceive('getContents')->andReturn(\GuzzleHttp\Utils::jsonEncode([
             'access_token'  => $accessToken = uniqid(),
             'expires_in'    => $expiresIn = time(),
             'refresh_token' => $refreshToken = uniqid(),
@@ -78,7 +78,6 @@ class BotCallbackTest extends TestCase
         ]));
         $response = Mockery::mock(Response::class);
         $response->shouldReceive('getBody')->andReturn($stream);
-
         $this->client->shouldReceive('post')->with('https://discord.com/api/oauth2/token', [
             'headers' => [
                 'Accept' => 'application/json',
@@ -91,7 +90,6 @@ class BotCallbackTest extends TestCase
                 'redirect_uri'  => $url,
             ],
         ])->andReturn($response);
-
         $botAddedHandlerConfig = uniqid();
         $this->config->shouldReceive('get')->with('laravel-restcord.bot-added-handler')->andReturn($botAddedHandlerConfig);
         $controllerResponse = Mockery::mock(RedirectResponse::class);
@@ -100,7 +98,6 @@ class BotCallbackTest extends TestCase
             return Guild::class == get_class($arg);
         }))->andReturn($controllerResponse);
         $this->application->shouldReceive('make')->with($botAddedHandlerConfig)->andReturn($botAddedHandler);
-
         $this->assertEquals($controllerResponse, $this->botCallback->botAdded(
             $this->request,
             $this->application,
@@ -146,7 +143,7 @@ class BotCallbackTest extends TestCase
         $this->request->shouldReceive('has')->with('error')->andReturn(false);
 
         $stream = Mockery::mock(StreamInterface::class);
-        $stream->shouldReceive('getContents')->andReturn(\GuzzleHttp\json_encode([
+        $stream->shouldReceive('getContents')->andReturn(\GuzzleHttp\Utils::jsonEncode([
             'code'    => $code = time(),
             'message' => $message = uniqid(),
         ]));

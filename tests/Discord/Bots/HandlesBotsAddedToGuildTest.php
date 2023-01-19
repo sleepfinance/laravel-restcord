@@ -40,7 +40,7 @@ class BotAddToGuildStub
      * that'll interpret the response and call this method, empowering you to control
      * what happens next.
      */
-    public function botAdded(Discord\Guild $Guild): RedirectResponse
+    public function botAdded(string $accessToken, int $expiresIn, string $refreshToken, Discord\Guild $Guild): RedirectResponse
     {
     }
 

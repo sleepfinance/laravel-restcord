@@ -63,7 +63,7 @@ class Discord
      * Maintaining static accessibility on the client allows us to use this throughout
      * other classes in the package without constantly passing around the dependency.
      */
-    public static function client() : ApiClient
+    public static function client() : ?ApiClient
     {
         return self::$api;
     }

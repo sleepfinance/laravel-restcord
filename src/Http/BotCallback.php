@@ -30,7 +30,7 @@ class BotCallback
         // Since we're doing the full oauth handshake
         // to add the bot, we need to use the bot token
         // during the exchange
-        $this->useDiscordBotToken();
+        //$this->useDiscordBotToken();
         /** @var HandlesBotAddedToGuild $botAddedHandler */
         $botAddedHandler = $application->make($config->get('laravel-restcord.bot-added-handler'));
         // can happen if the user decides not to add our bot

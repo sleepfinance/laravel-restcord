@@ -46,6 +46,19 @@ class Discord
     }
 
     /**
+     * Guilds the current user has access to.  This is an abbreviated
+     * version of the guilds endpoint so limited fields are provided.
+     *
+     * @see https://discord.com/developers/docs/resources/user#get-current-user-guilds
+     */
+    public function guild($gid): Guild
+    {
+        $guildItem = self::$api->get("/guilds/$gid");
+        return new Guild($guildItem);
+        
+    }
+
+    /**
      * Maintaining static accessibility on the client allows us to use this throughout
      * other classes in the package without constantly passing around the dependency.
      */
@@ -90,8 +103,10 @@ class Discord
     }
 
 
-    public static function addBotUrl(int $permissions, ?int $guildId = null){
-        $url = ApiClient::API_URL . '/oauth2/authorize?client_id=' . self::key() . '&scope=bot&permissions=' . $permissions . '&redirect_uri=' . urlencode(self::callbackUrl() . '/bot-added') . '&response_type=code';
+    public static function addBotUrl(int $permissions, ?int $guildId = null, array $scopes =[]){
+        $scopes = collect([...$scopes,'bot'])->explode('');
+        $urlScopes = urlencode($scopes);
+        $url = ApiClient::API_URL . '/oauth2/authorize?client_id=' . self::key() . '&scope='.$urlScopes.'&permissions=' . $permissions . '&redirect_uri=' . urlencode(self::callbackUrl() . '/bot-added') . '&response_type=code';
         if ($guildId != null) {
             $url .= '&guild_id=' . $guildId;
         }
@@ -109,9 +124,9 @@ class Discord
      *
      * @codecoverageignore
      */
-    public static function redirecToAddBot(int $permissions, ?int $guildId = null)
+    public static function redirecToAddBot(int $permissions, ?int $guildId =null, array $scopes = [])
     {
-        header('Location: ' . self::addBotUrl($permissions, $guildId));
+        header('Location: ' . self::addBotUrl($permissions, $guildId, $scopes));
         exit;
     }
 

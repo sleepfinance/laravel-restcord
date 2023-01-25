@@ -52,4 +52,11 @@ class ApiClient
 
         return \GuzzleHttp\Utils::jsonDecode($responseBody, true);
     }
+
+    public function put(string $uri, array $options = []): array
+    {
+        $response = $this->client->put(self::API_URL . $uri, $options);
+        $responseBody = $response->getBody()->getContents();
+        return \GuzzleHttp\Utils::jsonDecode($responseBody, true);
+    }
 }

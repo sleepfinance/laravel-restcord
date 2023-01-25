@@ -93,7 +93,6 @@ class Guild extends Fluent implements CanHavePermissions
     public function getMemberById(int $userId) : Member
     {
         $memberData = $this->api->get('/guilds/'.$this->id.'/members/'.$userId);
-
         return new Member($memberData, $this->api);
     }
 

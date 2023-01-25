@@ -75,7 +75,7 @@ class Discord
     }
 
 
-    public static function setKey(string $key)
+    public static function setKey(?string $key)
     {
         self::$key = $key;
     }
@@ -87,7 +87,7 @@ class Discord
     }
 
 
-    public static function setSecret(string $secret)
+    public static function setSecret(?string $secret)
     {
         self::$secret = $secret;
     }
@@ -99,7 +99,7 @@ class Discord
     }
 
 
-    public static function setCallbackUrl(string $callbackUrl)
+    public static function setCallbackUrl(?string $callbackUrl)
     {
         self::$callbackUrl = $callbackUrl;
     }

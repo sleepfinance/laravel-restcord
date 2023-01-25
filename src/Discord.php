@@ -112,7 +112,7 @@ class Discord
 
 
     public static function addBotUrl(int $permissions, ?int $guildId = null, array $scopes =[]){
-        $scopes = collect([...$scopes,'bot'])->explode('');
+        $scopes = collect([...$scopes,'bot'])->explode(' ');
         $urlScopes = urlencode($scopes);
         $url = ApiClient::API_URL . '/oauth2/authorize?client_id=' . self::key() . '&scope='.$urlScopes.'&permissions=' . $permissions . '&redirect_uri=' . urlencode(self::callbackUrl() . '/bot-added') . '&response_type=code';
         if ($guildId != null) {

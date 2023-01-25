@@ -55,6 +55,7 @@ class Discord
     {
         $guildItem = self::$api->get("/guilds/$gid");
         return new Guild($guildItem);
+       
         
     }
 
@@ -67,35 +68,42 @@ class Discord
         return self::$api;
     }
 
+
     public static function setClient(ApiClient $apiClient)
     {
         self::$api = $apiClient;
     }
+
 
     public static function setKey(string $key)
     {
         self::$key = $key;
     }
 
+
     public static function key() : string
     {
         return self::$key;
     }
+
 
     public static function setSecret(string $secret)
     {
         self::$secret = $secret;
     }
 
+
     public static function secret() : string
     {
         return self::$secret;
     }
 
+
     public static function setCallbackUrl(string $callbackUrl)
     {
         self::$callbackUrl = $callbackUrl;
     }
+
 
     public static function callbackUrl() : string
     {

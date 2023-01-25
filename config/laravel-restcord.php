@@ -3,10 +3,12 @@
 return [
 
     // Your application's bot token
-    'bot-token' => getenv('DISCORD_BOT_TOKEN'),
+    'bot-token' => env('DISCORD_BOT_TOKEN'),
+     // Your application's callback url
+    'call_back_url' => env('APP_URL'),
 
     // Whether or not an exception is thrown when a ratelimit is supposed to hit
-    'throw-exception-on-rate-limit' => getenv('DISCORD_USE_EXCEPTIONS', true),
+    'throw-exception-on-rate-limit' => env('DISCORD_USE_EXCEPTIONS', true),
 
     // Class to be invoked when a webhook has been created
     // replace this with your owner handler implementaton or add an IOC binding for this class

@@ -62,11 +62,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->useDiscordBotToken();
         } else {
-            Discord::setKey(env('DISCORD_KEY', ''));
-            Discord::setSecret(env('DISCORD_SECRET', ''));
+            Discord::setKey(config('services.discord.client_id'));
+            Discord::setSecret(config('services.discord.client_secret'));
         }
-        Discord::setCallbackUrl(env('APP_URL', ''));
-
+        Discord::setCallbackUrl(config('laravel-restcord.call_back_url'));
         // upon login add the token to session if using Discord's socialite
         if (class_exists('SocialiteProviders\Discord\DiscordExtendSocialite')) {
             Event::listen(Login::class, AddTokenToSession::class);

@@ -1,3 +1,8 @@
+
+# About sleep finance
+[Sleep.finance](https://sleep.finance) is an innovative cryptocurrency launchpad designed to help new crypto projects get off the ground with ease. The platform offers a comprehensive suite of tools and features to help manage projects from start to finish, including fundraising, marketing, and community engagement.  [Sleep.finance](https://sleep.finance) provide a safe, secure, and user-friendly platform for your project's launch. Whether you're a seasoned crypto entrepreneur or just starting out, [Sleep.finance](https://sleep.finance) is the perfect launchpad for your next big idea. Join us today and take your crypto project to new heights!
+
+
 # laravel-restcord (Laravel 8)
 
 The repository is a fork of [more-cores/laravel-restcord](https://gitlab.com/more-cores/laravel-restcord), it was updated to be compatible with PHP 8 and recent versions of Laravel.
